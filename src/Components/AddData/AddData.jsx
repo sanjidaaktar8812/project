@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Swal from 'sweetalert2';
 
 function AddData() {
 
@@ -14,7 +15,28 @@ function AddData() {
 
 
     const data = { platform, title, activist, link, date, tag };
-    console.log(data)
+    console.log(data);
+
+    // sed data to the server
+
+    fetch('http://localhost:5000/postData', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Data added successfully!!',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+      })
   }
 
   return (

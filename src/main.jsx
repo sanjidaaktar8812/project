@@ -22,7 +22,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/ShowData',
-        element: <ShowData></ShowData>
+        element: <ShowData></ShowData>,
+        loader: () => fetch('http://localhost:5000/postdata')
       },
     ]
   }

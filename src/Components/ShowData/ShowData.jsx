@@ -1,10 +1,17 @@
 import React from 'react'
+import Table from '../Table/Table';
 
 function ShowData() {
+
+    
+
+
     return (
         <div className='container mx-auto'>
-            ShowData
+            <div className="overflow-x-auto">
+                <Table></Table>
             </div>
+        </div>
     )
 }
 
